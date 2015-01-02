@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DeDup
 {
-    class FileSystemHaher<T> where T : HashAlgorithm
+    class FileSystemHasher<T> where T : HashAlgorithm
     {
         public static async Task<Dictionary<byte[], List<String>>> HashDirectory(DirectoryInfo directory) {
             return await HashDirectory(directory, new Progress<string>(), new CancellationToken());
@@ -62,5 +62,5 @@ namespace DeDup
         }
     }
 
-    class FileSystemHasher : FileSystemHaher<SHA256Cng> { }
+    class FileSystemHasher : FileSystemHasher<SHA256Cng> { }
 }
